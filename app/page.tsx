@@ -5,8 +5,9 @@ import topImage from '../public/images/trip_and_code_top2_worldmap.jpg'
 import topImageTraveler from '../public/images/traveler.jpg'
 import topImageProgrammer from '../public/images/programmer_2.jpg'
 import { useInView } from 'react-intersection-observer';
+import { ReactNode } from 'react';
 
-const FadeIn = ({ children }) => {
+const FadeIn = ({ children }: { children: ReactNode }) => {
     const { ref, inView } = useInView({
         // オプション
         rootMargin: '-100px', // ref要素が現れてから50px過ぎたら
