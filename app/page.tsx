@@ -133,7 +133,3 @@ const HomePage = () => {
 }
 
 export default HomePage;
-function getInitialLocale() {
-    throw new Error('Function not implemented.');
-}
-

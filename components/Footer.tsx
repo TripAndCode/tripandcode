@@ -1,4 +1,4 @@
-import { BsFacebook, BsInstagram, BsTwitter } from "react-icons/bs"
+import { BsInstagram, BsTwitter } from "react-icons/bs"
 
 
 const Footer = () => {
