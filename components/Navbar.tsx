@@ -77,8 +77,7 @@ export default function Navbar() {
                     <Image src={logo} alt={'trip&code_logo'} />
                 </Link>
             </div>
-            <div className="w-10/12 flex justify-end pr-6 md:pr-0">
-
+            <div className="w-10/12 flex justify-end pr-6 ">
                 <div className="z-50 flex relative w-8 h-8 flex-col justify-between items-center md:hidden" onClick={() => {
                     setOpen(!open)
                 }}>
