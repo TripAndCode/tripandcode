@@ -1,19 +1,29 @@
 import Image from 'next/image'
-import avatarImage from '../../public/images/avataaars.png'
+// import avatarImage from '../../public/images/avataaars.png'
+import profileImage from '../../public/images/circle_cropped_mexico.png'
 
 const AboutPage = () => {
 
     return (
         <>
-            <div className="mx-auto mt-10">
-                <h1 className="text-5xl	px-10 font-bold	">About Me</h1>
+            <div className="mt-10">
+                <div className="my-7">
+                    <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">About Me</h1>
+                </div>
                 {/* <p className="border-b border-slate-200 mx-8 py-3" /> */}
-                <div className="mt-6 flex justify-center">
-                    <div className="flex justify-between">
-                        <div >
-                            <Image className="h-auto max-w-min" src={avatarImage} alt="Louis M. avatar" />
+                <div className="mt-6">
+                    <div className="md:flex justify-between">
+                        <div className="flex justify-center md:flex-none">
+                            <Image
+                                className="max-w-min"
+                                width={300}
+                                height={300}
+                                src={profileImage}
+                                alt="Louis M. avatar"
+                            />
                         </div>
-                        <div className="max-w-xl">
+
+                        <div className="max-w-5xl mt-8 md:pl-5 md:max-w-3xl md:mt-0">
                             <div className="py-4">
                                 <p className="font-bold text-3xl mb-4  flex justify-center"> Hi, beautiful people! </p>
                                 <p className="text-gray-700 text-base">

@@ -7,61 +7,50 @@ import logo from '../public/images/tripcode-high-resolution-logo-color-on-transp
 import { usePathname } from 'next/navigation';
 
 function NavLink({ to, children }: { to: string, children: ReactNode }) {
-    return <a href={to} className={`mx-4`}>
+    return <a href={to} className="font-semibold my-8 text-4xl flex items-center justify-center hover:text-green-600 md:text-base md:flex-none md:mx-4">
         {children}
     </a>
 }
 
 // ORDER OF ITESM - HOME, ABOUT, BLOG
-const MenuItems = ({ pathName }: { pathName: string | null }) => {
-    if (pathName === "/about") {
-        return (
-            <>
-                <NavLink to="/">
-                    HOME
-                </NavLink>
-                <NavLink to="/blog">
-                    BLOG
-                </NavLink>
-            </>
-        )
-    } else if (pathName === "/blog") {
-        return (
-            <>
-                <NavLink to="/">
-                    HOME
-                </NavLink>
-                <NavLink to="/about">
-                    ABOUT
-                </NavLink>
-            </>
-        )
-    }
+const MenuItems = ({ pathName }: { pathName: string }) => {
+    const pathNameDict: { [key: string]: string } = {
+        "/": "HOME",
+        "/about": "ABOUT",
+        "/blog": "BLOG"
+    };
+    delete pathNameDict[pathName]
     return (
         <>
-            <NavLink to="/about">
-                ABOUT
-            </NavLink>
-            <NavLink to="/blog">
-                BLOG
-            </NavLink>
-
+            {
+                Object.keys(pathNameDict).map((key, index) => {
+                    return (
+                        <NavLink key={index} to={key}>
+                            {pathNameDict[key]}
+                        </NavLink>
+                    );
+                })
+            }
         </>
     )
+
 }
 
-function MobileNav({ open, pathName }: { open: boolean, pathName: string | null }) {
+function MobileNav({ open, pathName }: { open: boolean, pathName: string }) {
+    function onClick() {
+        window.location.href = "/"
+    }
     return (
         <div className={`absolute z-50 top-0 left-0 h-screen w-screen bg-white transform ${open ? "-translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-in-out filter drop-shadow-md `}>
             <div className="flex items-center justify-center filter drop-shadow-md bg-white h-20"> {/*logo container*/}
-                <Link href="">
+                <Link onClick={onClick} href={''}>
                     <Image src={logo} width={150} height={150} style={{
                         width: '100%',
                         height: 'auto',
                     }} className="mx-auto" alt={'trip&code'} />
                 </Link>
             </div>
-            <div className="flex flex-col ml-4 my-7">
+            <div className="flex flex-col mt-11">
                 <MenuItems pathName={pathName} />
             </div>
         </div>
@@ -72,7 +61,13 @@ function MobileNav({ open, pathName }: { open: boolean, pathName: string | null 
 
 export default function Navbar() {
     const [open, setOpen] = useState(false)
-    const pathName = usePathname()
+    let tmp_pathName: string | null = usePathname()
+    let pathName: string
+    if (tmp_pathName) {
+        pathName = tmp_pathName
+    } else {
+        pathName = "/"
+    }
 
     return (
         <nav className="flex bg-white my-2 h-20 items-center">

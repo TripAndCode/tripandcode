@@ -3,6 +3,7 @@ import Link from 'next/link'
 import PostPreview from '@/components/PostPreview';
 import getPostMetadata from "../../components/getPostMetada";
 import formatDate from '@/utils/formData';
+import Tag from '@/components/tag';
 
 const BlogPage = () => {
     const postMetadata = getPostMetadata()
@@ -22,7 +23,8 @@ const BlogPage = () => {
             <ul className="divide-y divide-gray-200 dark:divide-gray-700">
                 {!postMetadata.length && 'No posts found.'}
                 {postMetadata.map((post) => {
-                    const { title, date, subtitle, slug } = post
+                    const { title, date, subtitle, tags, slug } = post
+                    console.log(tags, typeof(tags));
                     return (
                         <li key={slug} className="py-12">
                             <article>
@@ -38,17 +40,17 @@ const BlogPage = () => {
                                             <div>
                                                 <h2 className="text-2xl font-bold leading-8 tracking-tight">
                                                     <Link
-                                                        href={`/posts/${slug}`}
+                                                        href={`/blog/${slug}`}
                                                         className="text-gray-900 dark:text-gray-100"
                                                     >
                                                         {title}
                                                     </Link>
                                                 </h2>
-                                                {/* <div className="flex flex-wrap">
-                                      {tags.map((tag) => (
-                                        <Tag key={tag} text={tag} />
-                                      ))}
-                                    </div> */}
+                                                <div className="flex flex-wrap mt-2">
+                                                    {tags.map((tag) => (
+                                                        <Tag key={tag} text={tag} />
+                                                    ))}
+                                                </div>
                                             </div>
                                             <div className="prose max-w-none text-gray-500 dark:text-gray-400">
                                                 {subtitle}
@@ -56,7 +58,7 @@ const BlogPage = () => {
                                         </div>
                                         <div className="text-base font-medium leading-6">
                                             <Link
-                                                href={`/posts/${slug}`}
+                                                href={`/blog/${slug}`}
                                                 className="text-green-500 hover:text-green-600 dark:hover:text-green-400"
                                                 aria-label={`Read "${title}"`}
                                             >
