@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import PostPreview from '@/components/PostPreview';
+// import PostPreview from '@/components/PostPreview';
 import getPostMetadata from "../../components/getPostMetada";
 import formatDate from '@/utils/formData';
 import Tag from '@/components/tag';
