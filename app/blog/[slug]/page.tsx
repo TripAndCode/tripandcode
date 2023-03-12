@@ -2,8 +2,8 @@ import fs from 'fs';
 import Markdown from 'markdown-to-jsx';
 import matter from 'gray-matter';
 import formatDate from '@/utils/formData';
-// import getPostMetadata from '@/components/getPostMetada';
-// import { notFound } from "next/navigation";
+import getPostMetadata from '@/components/getPostMetada';
+import { notFound } from "next/navigation";
 
 
 const getPostContent = (slug: string) => {
@@ -14,15 +14,15 @@ const getPostContent = (slug: string) => {
     return matterResult
 };
 
-// export const generateStaticParams = async () => {
-//     const posts = getPostMetadata();
-//     if (!posts) {
-//         notFound();
-//     }
-//     return posts.map((post) => ({
-//         slug: post.slug
-//     }))
-// }
+export const generateStaticParams = async () => {
+    const posts = getPostMetadata();
+    if (!posts) {
+        notFound();
+    }
+    return posts.map((post: any) => ({
+        slug: post.slug
+    }))
+}
 
 
 const PostPage = (props: any) => {
