@@ -1,5 +1,4 @@
 import Image from 'next/image'
-// import avatarImage from '../../public/images/avataaars.png'
 import profileImage from '../../public/images/circle_cropped_mexico.png'
 
 const AboutPage = () => {
