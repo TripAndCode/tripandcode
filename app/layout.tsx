@@ -20,9 +20,9 @@ export default function RootLayout({
         <AnimatePresence>
           <BoxTransition>
 
-            <div className="mx-auto px-6 md:px-12">
+            <div className="mx-auto px-2 md:px-11">
               <Header />
-              <div className="px-11">
+              <div className="md:px-12">
                 {children}
               </div>
               <Footer />

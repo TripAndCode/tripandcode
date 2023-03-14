@@ -4,7 +4,6 @@ import Link from 'next/link'
 import getPostMetadata from "../../components/getPostMetada";
 import formatDate from '@/utils/formData';
 import Tag from '@/components/tag';
-import { Key } from 'react';
 
 const BlogPage = () => {
     const postMetadata = getPostMetadata()
