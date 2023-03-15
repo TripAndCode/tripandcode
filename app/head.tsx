@@ -1,9 +1,18 @@
 // HTTP HEAD ELEMENT (METADATA FOR PAGES)
+"use client";
+
+import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script'
+import { useEffect } from 'react';
+import * as gtag from "../lib/gtag";
 
 export default function Head() {
-
-
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  useEffect(() => {
+    const url = pathname + searchParams.toString()
+    gtag.pageview(url)
+  }, [pathname, searchParams])
   return (
     <>
       <title>Trip&Code</title>
