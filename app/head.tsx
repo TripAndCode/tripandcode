@@ -2,12 +2,14 @@
 
 export default function Head() {
 
+
   return (
     <>
       <title>Trip&Code</title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <link rel="icon" href="/favicon-32x32.png" />
       {/* <!-- Google tag (gtag.js) --> */}
-      <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_TRACKING_ID}`}></script>
+      {/* <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA4_TRACKING_ID}`}></script>
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -18,7 +20,7 @@ export default function Head() {
             gtag('config', '${process.env.NEXT_PUBLIC_GA4_TRACKING_ID}');
           `,
         }}
-      />
+      /> */}
     </>
   )
 }

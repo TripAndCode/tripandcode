@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import { AnimatePresence } from "framer-motion";
 import BoxTransition from "@/utils/BoxTransition";
 
+console.log(process.env.NEXT_PUBLIC_GA4_TRACKING_ID);
 
 export default function RootLayout({
   children,
